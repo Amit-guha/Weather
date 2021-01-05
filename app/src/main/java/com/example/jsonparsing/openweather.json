@@ -1,0 +1,43 @@
+{
+  "coord": {
+    "lon": 89.1,
+    "lat": 22.72
+  },
+  "weather": [
+    {
+      "id": 721,
+      "main": "Haze",
+      "description": "haze",
+      "icon": "50n"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 292.15,
+    "feels_like": 289.56,
+    "temp_min": 292.15,
+    "temp_max": 292.15,
+    "pressure": 1014,
+    "humidity": 48
+  },
+  "visibility": 3200,
+  "wind": {
+    "speed": 2.94,
+    "deg": 329
+  },
+  "clouds": {
+    "all": 92
+  },
+  "dt": 1608470285,
+  "sys": {
+    "type": 1,
+    "id": 9114,
+    "country": "BD",
+    "sunrise": 1608424744,
+    "sunset": 1608463404
+  },
+  "timezone": 21600,
+  "id": 1185111,
+  "name": "Sātkhira",
+  "cod": 200
+}

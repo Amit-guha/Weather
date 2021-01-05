@@ -1,0 +1,20 @@
+{
+  "address": {
+    "city": "Dhaka",
+    "country": "Bangladesh"
+  },
+  "age": 24,
+  "family": [
+    {
+      "age": "35",
+      "role": "wife"
+    },
+    {
+      "age": "10",
+      "role": "Daughter"
+    }
+  ],
+  "firstName": "Amit",
+  "lastName": "guha",
+  "mail": "amitguho95@gmail.com"
+}
