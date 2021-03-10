@@ -13,8 +13,10 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-
+        buildConfigField ("String","API_KEY",API_KEY)
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+
     }
 
     buildTypes {
@@ -23,6 +25,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+  /*  externalNativeBuild {
+        cmake {
+            path 'CMakeLists.txt'
+        }
+    }*/
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -47,6 +56,18 @@ dependencies {
 
     //Animation
     implementation 'com.airbnb.android:lottie:3.5.0'
+
+    //Glide library
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+
+    //Logger library
+    implementation 'com.orhanobut:logger:2.2.0'
+
+    //Shimmer effect for Android
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
+    //Circular imageview
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     testImplementation 'junit:junit:4.13.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'

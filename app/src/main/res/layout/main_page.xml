@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="80dp"
-    android:visibility="gone"
     tools:visibility="visible">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,151 +15,349 @@
         android:descendantFocusability="blocksDescendants"
         android:orientation="vertical">
 
+
+
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/Presentcurrent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Current"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-            android:textColor="@color/material_blue"
+            android:textColor="#36ACE3"
+            android:visibility="gone"
             android:textStyle="bold" />
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/todayMaterialCard"
-            style="@style/Widget.MaterialComponents.CardView"
+
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimfram"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/card_view_height"
-            android:layout_marginStart="@dimen/spacing_mlarge"
-            android:layout_marginEnd="@dimen/spacing_mlarge"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardBackgroundColor="@color/material_blue"
-            app:cardCornerRadius="30dp">
+            android:layout_height="wrap_content"
+            app:shimmer_auto_start="true"
+            app:shimmer_highlight_color="#36ACE3">
 
-            <LinearLayout
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/todayMaterialCard"
+                style="@style/Widget.MaterialComponents.CardView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingTop="@dimen/spacing_medium">
+                android:layout_height="@dimen/card_view_height"
+                android:layout_marginStart="@dimen/spacing_mlarge"
+                android:layout_marginEnd="@dimen/spacing_mlarge"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="#36ACE3"
+                app:cardCornerRadius="30dp">
 
-                <TextSwitcher
-                    android:id="@+id/temp_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layoutDirection="ltr" />
-
-                <TextSwitcher
-                    android:id="@+id/description_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center" />
-
+                <!--current temp-->
                 <LinearLayout
+                    android:id="@+id/temp_current"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/spacing_large"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/spacing_medium"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/temp_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layoutDirection="ltr"
+                        android:textColor="#FFFFFF"
+                        android:textSize="70sp" />
+
+                    <TextView
+                        android:id="@+id/description_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="23sp"
+                        android:textStyle="bold" />
 
                     <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_large"
+                        android:orientation="horizontal">
 
                         <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:padding="@dimen/spacing_middle">
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
 
-                            <androidx.appcompat.widget.AppCompatTextView
-                                style="@style/TextViewInColoredCard"
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Humidity"
-                                android:textStyle="bold" />
+                                android:orientation="horizontal"
+                                android:padding="@dimen/spacing_middle">
 
-                            <View
-                                android:layout_width="@dimen/spacing_medium"
-                                android:layout_height="0dp" />
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/TextViewInColoredCard"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:textStyle="bold" />
 
-                            <TextSwitcher
-                                android:id="@+id/humidity_text_view"
-                                android:layout_width="wrap_content"
+                                <View
+                                    android:layout_width="@dimen/spacing_medium"
+                                    android:layout_height="0dp" />
+
+                                <TextView
+                                    android:id="@+id/humidity_text_view"
+                                    style="@style/TextViewInColoredCard"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center" />
+                                android:orientation="horizontal"
+                                android:padding="@dimen/spacing_middle">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    style="@style/TextViewInColoredCard"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:textStyle="bold" />
+
+                                <View
+                                    android:layout_width="@dimen/spacing_medium"
+                                    android:layout_height="0dp" />
+
+                                <TextView
+                                    android:id="@+id/wind_text_view"
+                                    style="@style/TextViewInColoredCard"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:padding="@dimen/spacing_middle">
 
-                            <androidx.appcompat.widget.AppCompatTextView
-                                style="@style/TextViewInColoredCard"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:text="Wind"
-                                android:textStyle="bold" />
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/animation_view"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            app:lottie_autoPlay="true"
+                            app:lottie_loop="true" />
 
-                            <View
-                                android:layout_width="@dimen/spacing_medium"
-                                android:layout_height="0dp" />
-
-                            <TextSwitcher
-                                android:id="@+id/wind_text_view"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center" />
-                        </LinearLayout>
                     </LinearLayout>
+                </LinearLayout>
 
+                <!--Finish current temp-->
+                <LinearLayout
+                    android:id="@+id/temp_shimmer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/spacing_medium">
 
-                    <com.airbnb.lottie.LottieAnimationView
-                        android:id="@+id/animation_view"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        app:lottie_autoPlay="true"
-                        app:lottie_loop="true" />
+                    <include layout="@layout/currenttemp" />
 
                 </LinearLayout>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+
+
+            </com.google.android.material.card.MaterialCardView>
+        </com.facebook.shimmer.ShimmerFrameLayout>
 
         <View
             android:layout_width="0dp"
             android:layout_height="@dimen/spacing_large" />
 
-        <LinearLayout
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/MinandMax"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_mlarge"
-            android:orientation="vertical">
+            android:gravity="center"
+            android:text="Hourly"
+            android:visibility="gone"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            android:textColor="#36ACE3"
+            android:textStyle="bold" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Next 4 Days/Hourly"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="@dimen/spacing_medium" />
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerSecond"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:shimmer_auto_start="true">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view"
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.MaterialComponents.CardView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" />
+                android:layout_height="170dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardBackgroundColor="#36ACE3"
+                app:cardCornerRadius="20dp">
 
-        </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Linersecond"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/spacing_medium" />
+
+                    <include layout="@layout/hourlysimilarshimmer" />
+
+                    <include layout="@layout/hourlysimilarshimmer" />
+
+                    <include layout="@layout/hourlysimilarshimmer" />
+
+                    <include layout="@layout/hourlysimilarshimmer" />
+
+                    <include layout="@layout/hourlysimilarshimmer" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_view_hourly"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimframrecy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:shimmer_auto_start="true">
+
+            <!--Shimmer layout-->
+            <LinearLayout
+                android:id="@+id/sevenlayouthide"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.MaterialComponents.CardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_mlarge"
+                    android:layout_marginEnd="@dimen/spacing_mlarge"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="#36ACE3"
+                    app:cardCornerRadius="30dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:orientation="vertical">
+
+
+                        <include layout="@layout/weeklyshimmer" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="3dp" />
+
+                        <include layout="@layout/weeklyshimmer" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="3dp" />
+
+                        <include layout="@layout/weeklyshimmer" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="7dp" />
+
+                        <include layout="@layout/weeklyshimmer" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="3dp" />
+
+                        <include layout="@layout/weeklyshimmer" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="3dp" />
+
+                        <include layout="@layout/weeklyshimmer" />
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <!--Shimmer sevendays last-->
+
+
+            <LinearLayout
+                android:id="@+id/sevenlayouton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.google.android.material.card.MaterialCardView
+                    style="@style/Widget.MaterialComponents.CardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_mlarge"
+                    android:layout_marginEnd="@dimen/spacing_mlarge"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="#36ACE3"
+                    app:cardCornerRadius="30dp">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerview_sevendays"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:orientation="vertical"
+                        tools:listitem="@layout/weekly">
+
+                    </androidx.recyclerview.widget.RecyclerView>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
 
     </LinearLayout>
+
 
 </androidx.core.widget.NestedScrollView>

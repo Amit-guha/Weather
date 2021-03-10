@@ -21,4 +21,16 @@ public class Weather {
     public String getDescription() {
         return description;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setMain(String main) {
+        this.main = main;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

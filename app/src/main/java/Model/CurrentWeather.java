@@ -21,6 +21,12 @@ public class CurrentWeather {
     @SerializedName("base")
     private String base;
 
+    @SerializedName("dt")
+    private Integer dt;
+
+    @SerializedName("sys")
+    private Sys sys;
+
     @SerializedName("name")
     private String name;
 
@@ -46,6 +52,46 @@ public class CurrentWeather {
 
     public Wind getWind() {
         return wind;
+    }
+
+    public void setCoord(Coord coord) {
+        this.coord = coord;
+    }
+
+    public void setWeather(List<Weather> weather) {
+        this.weather = weather;
+    }
+
+    public void setMain(Main main) {
+        this.main = main;
+    }
+
+    public void setWind(Wind wind) {
+        this.wind = wind;
+    }
+
+    public void setBase(String base) {
+        this.base = base;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Sys getSys() {
+        return sys;
+    }
+
+    public void setSys(Sys sys) {
+        this.sys = sys;
+    }
+
+    public Integer getDt() {
+        return dt;
+    }
+
+    public void setDt(Integer dt) {
+        this.dt = dt;
     }
 }
 

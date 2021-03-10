@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="5">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_date"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="time"
+            android:textColor="#FFFFFF"
+            android:textSize="17dp"
+            android:layoutDirection="ltr"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_day"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:text="time"
+            android:textSize="17dp"
+            android:layoutDirection="ltr"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/sevendays_view"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="28dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_maxtemp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:text="time"
+            android:textSize="17dp"
+            android:layoutDirection="ltr"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_mintemp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:text="time"
+            android:textSize="17dp"
+            android:layoutDirection="ltr"
+            />
+
+    </LinearLayout>
+

@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">JsonParsing</string>
+    <string name="app_name">WeatherReport</string>
+    <string name="zero_label">0%d</string>
+    <string name="wind_unit_label">%.0f km/hr</string>
 </resources>

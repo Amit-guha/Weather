@@ -3,7 +3,8 @@
     android:id="@+id/emtpylayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:visibility="gone">
+    android:visibility="gone"
+    >
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/search_text_view"
