@@ -19,7 +19,7 @@ Click the search icon and if  you provide a city as an input(Access current weat
  
  <br/>
  
- <p>
+ <p align="center">
  <img src="https://github.com/Amit-guha/Weather/blob/master/app/src/main/assets/sevendays.jpg" width="220px" height="440px">
  <img src="https://github.com/Amit-guha/Weather/blob/master/app/src/main/assets/sunrise.jpg" width="220px" height="440px">
  </p>
