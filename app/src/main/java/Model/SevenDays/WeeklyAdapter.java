@@ -47,6 +47,14 @@ public class WeeklyAdapter extends RecyclerView.Adapter<WeeklyAdapter.Perday> {
     public void onBindViewHolder(@NonNull Perday holder, int position) {
 
         Temp temp=mTemplist.get(position);
+
+        if(temp.getMax()<0 && temp.getMax()>-0.5){
+            temp.setMax(Float.valueOf(0));
+        }
+
+        if(temp.getMin() <0 && temp.getMin() > -0.5){
+            temp.setMin(Float.valueOf(0));
+        }
         holder.maxtemp.setText(String.format(Locale.getDefault(), "%.0f°",temp.getMax())+"C");
 
        // Toast.makeText(context, "herel", Toast.LENGTH_SHORT).show();

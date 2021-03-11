@@ -76,10 +76,10 @@ public class WeatherReport extends AppCompatActivity {
     MaterialSearchView searchView;
     private MaterialCardView cardView;
 
-    private TextView text_temp, text_desc, text_humidity, text_wind, tvMinMax,toolbarText;
+    private TextView text_temp, text_desc, text_humidity, text_wind, tvMinMax, toolbarText;
     OpenWeatherApi openWeatherApi;
 
-    private static final String APPID =BuildConfig.API_KEY;
+    private static final String APPID = BuildConfig.API_KEY;
 
     private NestedScrollView nestedScrollView;
     private RelativeLayout emptylayout;
@@ -89,10 +89,10 @@ public class WeatherReport extends AppCompatActivity {
     private Typeface typeface;
 
     //shimmer
-    private ShimmerFrameLayout shimmerFrameLayout,hourlyShimmerFram,ShimmerSecond;
+    private ShimmerFrameLayout shimmerFrameLayout, hourlyShimmerFram, ShimmerSecond;
 
     //TextView current
-    private TextView tvPresenttemp,Texthourly;
+    private TextView tvPresenttemp, Texthourly;
 
 
     //Hourlydata -->>Recyclerview,Arraylist,HourlyTemp
@@ -106,15 +106,14 @@ public class WeatherReport extends AppCompatActivity {
     private HourlyAdapter adapter;
 
 
-
     //sevendays view
     private RecyclerView mRecyclerviewSevendays;
-    private List<Temp>mTemplist;
+    private List<Temp> mTemplist;
     private WeeklyAdapter weeklyAdapter;
 
     //Date
-    private List<String>DayMonth;
-    private List<String>DateMOnth;
+    private List<String> DayMonth;
+    private List<String> DateMOnth;
 
     //Broadcast Receiver
     MyReceiver myReceiver = new MyReceiver();
@@ -122,7 +121,7 @@ public class WeatherReport extends AppCompatActivity {
 
 
     //layout
-    private LinearLayout mlayout,layoutoff,layouton,temp_current,temp_shimmer;
+    private LinearLayout mlayout, layoutoff, layouton, temp_current, temp_shimmer;
 
     //coordinatorlayout
     private CoordinatorLayout coordinatorLayout;
@@ -150,10 +149,10 @@ public class WeatherReport extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //Change the status bar background color
-        Window w=WeatherReport.this.getWindow();
+        Window w = WeatherReport.this.getWindow();
         w.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         w.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        w.setStatusBarColor(ContextCompat.getColor(WeatherReport.this,R.color.white));
+        w.setStatusBarColor(ContextCompat.getColor(WeatherReport.this, R.color.white));
 
 
         //To change the status bar Text and icon color
@@ -172,17 +171,15 @@ public class WeatherReport extends AppCompatActivity {
         filter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
 
 
-        
-
         //coordinat layout
-        coordinatorLayout=findViewById(R.id.coordinator_layout);
+        coordinatorLayout = findViewById(R.id.coordinator_layout);
 
         //NestedScrollview
         nestedScrollView = findViewById(R.id.nested_scroll_view);
         emptylayout = findViewById(R.id.emtpylayout);
 
         //Cardview
-        cardView=findViewById(R.id.todayMaterialCard);
+        cardView = findViewById(R.id.todayMaterialCard);
 
         //font
         typeface = Typeface.createFromAsset(getAssets(), "fonts/Vazir.ttf");
@@ -196,37 +193,37 @@ public class WeatherReport extends AppCompatActivity {
         text_humidity = findViewById(R.id.humidity_text_view);
         text_wind = findViewById(R.id.wind_text_view);
         tvMinMax = findViewById(R.id.MinandMax);
-        toolbarText=findViewById(R.id.cityname);
+        toolbarText = findViewById(R.id.cityname);
 
         //Textview
-        tvPresenttemp=findViewById(R.id.Presentcurrent);
-        Texthourly=findViewById(R.id.MinandMax);
+        tvPresenttemp = findViewById(R.id.Presentcurrent);
+        Texthourly = findViewById(R.id.MinandMax);
 
 
         //shimmer
-        shimmerFrameLayout=findViewById(R.id.shimfram);
-        hourlyShimmerFram=findViewById(R.id.shimframrecy);
-        ShimmerSecond=findViewById(R.id.shimmerSecond);
+        shimmerFrameLayout = findViewById(R.id.shimfram);
+        hourlyShimmerFram = findViewById(R.id.shimframrecy);
+        ShimmerSecond = findViewById(R.id.shimmerSecond);
 
         //RecyclerView and Adapter
         mRecyclerView = findViewById(R.id.recycler_view_hourly);
         hourlyTempList = new ArrayList<>();
         TimeList = new ArrayList<>();
         IdList = new ArrayList<>();
-        SevenIdList=new ArrayList<>();
-        DayMonth=new ArrayList<>();
-        DateMOnth=new ArrayList<>();
+        SevenIdList = new ArrayList<>();
+        DayMonth = new ArrayList<>();
+        DateMOnth = new ArrayList<>();
 
         //Recyclerview with sevendays
-        mRecyclerviewSevendays=findViewById(R.id.recyclerview_sevendays);
-        mTemplist=new ArrayList<>();
+        mRecyclerviewSevendays = findViewById(R.id.recyclerview_sevendays);
+        mTemplist = new ArrayList<>();
 
         //Linerlayot
-        mlayout=findViewById(R.id.Linersecond);
-        layoutoff=findViewById(R.id.sevenlayouthide);
-        layouton=findViewById(R.id.sevenlayouton);
-        temp_current=findViewById(R.id.temp_current);
-        temp_shimmer=findViewById(R.id.temp_shimmer);
+        mlayout = findViewById(R.id.Linersecond);
+        layoutoff = findViewById(R.id.sevenlayouthide);
+        layouton = findViewById(R.id.sevenlayouton);
+        temp_current = findViewById(R.id.temp_current);
+        temp_shimmer = findViewById(R.id.temp_shimmer);
 
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -260,7 +257,7 @@ public class WeatherReport extends AppCompatActivity {
                     Toast.makeText(WeatherReport.this, "No Internet Connection", Toast.LENGTH_SHORT).show();
                 }
 */
-               // SevendaysWeather(51.5085, -0.1257);
+                // SevendaysWeather(51.5085, -0.1257);
 
                 // ServiceWeather(query);
                 return false;
@@ -276,7 +273,7 @@ public class WeatherReport extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 searchView.showSearch();
-               // Toast.makeText(WeatherReport.this, "Click", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(WeatherReport.this, "Click", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -332,13 +329,13 @@ public class WeatherReport extends AppCompatActivity {
                         System.out.println(split[0]);
 
                         if ((split[0].trim()).equals(strDate.trim())) {
-                           // System.out.println("Same");
+                            // System.out.println("Same");
                             hourlyTempList.add(new MainHourly(temp));
                             TimeList.add(new Model.Hourly.List(currenttime));
                             IdList.add(new WeatherHourly(Id));
 
                         } else {
-                           // System.out.println("not same");
+                            // System.out.println("not same");
 
                         }
 
@@ -353,7 +350,7 @@ public class WeatherReport extends AppCompatActivity {
                     mRecyclerView.setVisibility(View.VISIBLE);
 
                 } else {
-                  //  Toast.makeText(WeatherReport.this, "Sorry!This city is not included in Openweathermapapi.org website", Toast.LENGTH_SHORT).show();
+                    //  Toast.makeText(WeatherReport.this, "Sorry!This city is not included in Openweathermapapi.org website", Toast.LENGTH_SHORT).show();
                 }
               /*  LinearLayoutManager layoutManager=new
                         LinearLayoutManager(WeatherReport.this,LinearLayoutManager.HORIZONTAL,false);
@@ -408,7 +405,7 @@ public class WeatherReport extends AppCompatActivity {
             public void onResponse(Call<CurrentWeather> call, Response<CurrentWeather> response) {
                 if (!response.isSuccessful()) {
                     //Toast.makeText(WeatherReport.this, "Code :" + response.code(), Toast.LENGTH_SHORT).show();
-                    Toast.makeText(WeatherReport.this, "Sorry! This city is not included in Openweathermapapi.org website" , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(WeatherReport.this, "Sorry! This city is not included in Openweathermapapi.org website", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -448,7 +445,11 @@ public class WeatherReport extends AppCompatActivity {
                     temp_shimmer.setVisibility(View.GONE);
                     temp_current.setVisibility(View.VISIBLE);
 
-                    text_temp.setText(String.format(Locale.getDefault(), "%.0f°", currentWeather.getMain().getTemp())+"C");
+                    if (currentWeather.getMain().getTemp() < 0 && currentWeather.getMain().getTemp() > -0.5) {
+                        currentWeather.getMain().setTemp(0);
+                    }
+
+                    text_temp.setText(String.format(Locale.getDefault(), "%.0f°", currentWeather.getMain().getTemp()) + "C");
                     //text_temp.setText((int)currentWeather.getMain().getTemp()+"\u2103");
                     text_temp.setTypeface(typeface);
 
@@ -459,23 +460,23 @@ public class WeatherReport extends AppCompatActivity {
                     //  text_wind.setText((int) currentWeather.getWind().getSpeed());
 
                     int humdity = currentWeather.getMain().getHumidity();
-                   // Toast.makeText(WeatherReport.this, ""+humdity, Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(WeatherReport.this, ""+humdity, Toast.LENGTH_SHORT).show();
                     int weatherid = currentWeather.getWeather().get(0).getId();
-                    Integer dt=currentWeather.getDt();
-                    Integer sunrise=currentWeather.getSys().getSunrise();
-                    Integer sunset=currentWeather.getSys().getSunset();
+                    Integer dt = currentWeather.getDt();
+                    Integer sunrise = currentWeather.getSys().getSunrise();
+                    Integer sunset = currentWeather.getSys().getSunset();
 
                     text_desc.setText(Aputill.getWeatherStatus(weatherid, Aputill.isRTL(WeatherReport.this)));
                     text_desc.setTypeface(typeface);
 
-                    text_humidity.setText("Humidity "+(String.format(Locale.getDefault(), "%d%%", humdity)));
+                    text_humidity.setText("Humidity " + (String.format(Locale.getDefault(), "%d%%", humdity)));
                     text_humidity.setTypeface(typeface);
 
-                    text_wind.setText("Wind "+(String.format(Locale.getDefault(), getResources().getString(R.string.wind_unit_label),
+                    text_wind.setText("Wind " + (String.format(Locale.getDefault(), getResources().getString(R.string.wind_unit_label),
                             currentWeather.getWind().getSpeed())));
                     text_wind.setTypeface(typeface);
 
-                    toolbarText.setText(currentWeather.getName()+","+currentWeather.getSys().getCountry());
+                    toolbarText.setText(currentWeather.getName() + "," + currentWeather.getSys().getCountry());
 
 
                     //cardView Lisitiner
@@ -483,15 +484,29 @@ public class WeatherReport extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             //Toast.makeText(WeatherReport.this, "next Activity", Toast.LENGTH_SHORT).show();
-                           // Integer Iddes=example.getDaily().get(0).getWeather().get(0).getId();
-                            Intent intent=new Intent(WeatherReport.this,Clickcardview.class);
-                            intent.putExtra("temp",String.format(Locale.getDefault(), "%.0f°", currentWeather.getMain().getTemp()));
-                            intent.putExtra("tempmin",String.format(Locale.getDefault(), "%.0f°", example.getDaily().get(0).getTemp().getMin()));
-                            intent.putExtra("tempmax",String.format(Locale.getDefault(), "%.0f°", example.getDaily().get(0).getTemp().getMax()));
-                            intent.putExtra("id",weatherid);
-                            intent.putExtra("dt",dt);
-                            intent.putExtra("sunrise",sunrise);
-                            intent.putExtra("sunset",sunset);
+                            // Integer Iddes=example.getDaily().get(0).getWeather().get(0).getId();
+                            Intent intent = new Intent(WeatherReport.this, Clickcardview.class);
+
+                            if (currentWeather.getMain().getTemp() < 0 && currentWeather.getMain().getTemp() > -0.5) {
+                                currentWeather.getMain().setTemp(0);
+                            }
+
+                            if (example.getDaily().get(0).getTemp().getMin() < 0 && example.getDaily().get(0).getTemp().getMin() > -0.5) {
+                                example.getDaily().get(0).getTemp().setMin(Float.valueOf(0));
+                            }
+
+                            if (example.getDaily().get(0).getTemp().getMax() < 0 && example.getDaily().get(0).getTemp().getMax() > -0.5) {
+                                example.getDaily().get(0).getTemp().setMax(Float.valueOf(0));
+                            }
+
+
+                            intent.putExtra("temp", String.format(Locale.getDefault(), "%.0f°", currentWeather.getMain().getTemp()));
+                            intent.putExtra("tempmin", String.format(Locale.getDefault(), "%.0f°", example.getDaily().get(0).getTemp().getMin()));
+                            intent.putExtra("tempmax", String.format(Locale.getDefault(), "%.0f°", example.getDaily().get(0).getTemp().getMax()));
+                            intent.putExtra("id", weatherid);
+                            intent.putExtra("dt", dt);
+                            intent.putExtra("sunrise", sunrise);
+                            intent.putExtra("sunset", sunset);
                             startActivity(intent);
                         }
                     });
@@ -504,7 +519,7 @@ public class WeatherReport extends AppCompatActivity {
                     double latitude = currentWeather.getCoord().getLat();
                     double longitude = currentWeather.getCoord().getLon();
 
-                     SevendaysWeather(latitude,longitude);
+                    SevendaysWeather(latitude, longitude);
 
                     // Toast.makeText(WeatherReport.this, ""+latitude+" "+longitude, Toast.LENGTH_SHORT).show();
 
@@ -562,7 +577,7 @@ public class WeatherReport extends AppCompatActivity {
 */
 
         Call<Example> call = openWeatherApi.getSevenDaysStatus(latitude, longitude,
-                new String[]{"current","hourly","alerts","minutely"},
+                new String[]{"current", "hourly", "alerts", "minutely"},
                 "metric", APPID);
 
         LinearLayoutManager layoutManager
@@ -586,61 +601,61 @@ public class WeatherReport extends AppCompatActivity {
                                 Calendar.getInstance().getActualMaximum(Calendar.DAY_OF_MONTH));
                         end.add(Calendar.DATE, 7);
 
-                        example=response.body();
+                        example = response.body();
                         mTemplist.clear();
 
-                        for(int i=0;i<example.getDaily().size();i++){
-                           Float maxTemp= example.getDaily().get(i).getTemp().getMax();
-                           Float minTemp=example.getDaily().get(i).getTemp().getMin();
-                           Integer IdSeven=example.getDaily().get(i).getWeather().get(0).getId();
-                           mTemplist.add(new Temp(maxTemp,minTemp));
-                           SevenIdList.add(new Weak(IdSeven));
+                        for (int i = 0; i < example.getDaily().size(); i++) {
+                            Float maxTemp = example.getDaily().get(i).getTemp().getMax();
+                            Float minTemp = example.getDaily().get(i).getTemp().getMin();
+                            Integer IdSeven = example.getDaily().get(i).getWeather().get(0).getId();
+                            mTemplist.add(new Temp(maxTemp, minTemp));
+                            SevenIdList.add(new Weak(IdSeven));
                         }
 
                         // SimpleDateFormat sdf = new SimpleDateFormat("dd/MM");
                         SimpleDateFormat sdf = new SimpleDateFormat("E");
-                        for (int i=0;i<=7;i++){
-                            Calendar calendar=new GregorianCalendar();
-                            calendar.add(Calendar.DATE,i);
-                            String day=sdf.format(calendar.getTime());
+                        for (int i = 0; i <= 7; i++) {
+                            Calendar calendar = new GregorianCalendar();
+                            calendar.add(Calendar.DATE, i);
+                            String day = sdf.format(calendar.getTime());
                             //Log.d("day ",day);
                             DayMonth.add(day);
 
                         }
 
-                         SimpleDateFormat sdfe = new SimpleDateFormat("dd/MM");
-                        for (int i=0;i<=7;i++){
-                            Calendar calendar=new GregorianCalendar();
-                            calendar.add(Calendar.DATE,i);
-                            String day=sdfe.format(calendar.getTime());
-                           // Log.d("day ",day);
+                        SimpleDateFormat sdfe = new SimpleDateFormat("dd/MM");
+                        for (int i = 0; i <= 7; i++) {
+                            Calendar calendar = new GregorianCalendar();
+                            calendar.add(Calendar.DATE, i);
+                            String day = sdfe.format(calendar.getTime());
+                            // Log.d("day ",day);
                             DateMOnth.add(day);
 
                         }
 
-                        weeklyAdapter=new WeeklyAdapter(WeatherReport.this,mTemplist,DayMonth,DateMOnth,SevenIdList);
+                        weeklyAdapter = new WeeklyAdapter(WeatherReport.this, mTemplist, DayMonth, DateMOnth, SevenIdList);
                         hourlyShimmerFram.stopShimmer();
                         hourlyShimmerFram.hideShimmer();
-                       // Toast.makeText(WeatherReport.this, "Data going...", Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(WeatherReport.this, "Data going...", Toast.LENGTH_SHORT).show();
                         mRecyclerviewSevendays.setAdapter(weeklyAdapter);
                         layoutoff.setVisibility(View.GONE);
                         layouton.setVisibility(View.VISIBLE);
 
 
                     } else {
-                       // Toast.makeText(WeatherReport.this, "" + response.code(), Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(WeatherReport.this, "" + response.code(), Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<Example> call, Throwable t) {
-                    Log.d("Check",t.getMessage());
-                   // tvMinMax.setText(t.getMessage());
-                    Toast.makeText(WeatherReport.this, "Find issues"+t.getMessage(), Toast.LENGTH_LONG).show();
+                    Log.d("Check", t.getMessage());
+                    // tvMinMax.setText(t.getMessage());
+                    Toast.makeText(WeatherReport.this, "Find issues" + t.getMessage(), Toast.LENGTH_LONG).show();
                 }
             });
         } catch (Exception e) {
-           Log.d("Wrong",e.getLocalizedMessage().toString());
+            Log.d("Wrong", e.getLocalizedMessage().toString());
         }
 
 
