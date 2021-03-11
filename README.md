@@ -29,3 +29,6 @@ Click the search icon and if  you provide a city as an input(Access current weat
  * [Shimmer effect for Android](https://facebook.github.io/shimmer-android/)
  * [Circular Imageview](https://github.com/hdodenhof/CircleImageView)
  * [Square Retrofit](https://square.github.io/retrofit/)
+
+**Credit :** <br/>
+  Thank you [OpenWeatherMap API](https://openweathermap.org/) for providing me the API KEY and also thank to other github resources where i get the idea about weather app
