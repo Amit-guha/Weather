@@ -27,6 +27,8 @@ Click the search icon and if  you provide a city as an input(Access current weat
  <br/>
  <br/>
  
+# [Demo video link](https://www.linkedin.com/posts/amit-guha_android-java-openweathermap-activity-6775798442687127554-PPkY)
+ 
  # Dependencies
  * [Material design](https://material.io/develop/android)
  * [Material SearchView](https://github.com/MiguelCatalan/MaterialSearchView)
