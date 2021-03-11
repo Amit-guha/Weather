@@ -26,44 +26,47 @@ public class HourlyAdapter extends RecyclerView.Adapter<HourlyAdapter.ThreeHour>
 
     private Context context;
     private List<MainHourly> hourlyTempList;
-    private List<Model.Hourly.List>TimeList;
+    private List<Model.Hourly.List> TimeList;
     private List<WeatherHourly> IdList;
 
-    public HourlyAdapter(Context context, List<MainHourly> hourlyTempList,List<Model.Hourly.List>TimeList
-    ,List<WeatherHourly> IdList) {
+    public HourlyAdapter(Context context, List<MainHourly> hourlyTempList, List<Model.Hourly.List> TimeList
+            , List<WeatherHourly> IdList) {
         this.context = context;
         this.hourlyTempList = hourlyTempList;
-        this.TimeList=TimeList;
-        this.IdList=IdList;
+        this.TimeList = TimeList;
+        this.IdList = IdList;
     }
 
     @NonNull
     @Override
     public ThreeHour onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view=LayoutInflater.from(context).inflate(R.layout.hourlysimilar,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.hourlysimilar, parent, false);
         return new ThreeHour(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ThreeHour holder, int position) {
         //Time
-        Model.Hourly.List list=TimeList.get(position);
+        Model.Hourly.List list = TimeList.get(position);
         Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
         calendar.setTimeInMillis(list.getDt() * 1000L);
         holder.tvtime.setText(Aputill.getTime(calendar, context));
 
         //Temperature
-        MainHourly temp=hourlyTempList.get(position);
+        MainHourly temp = hourlyTempList.get(position);
+        if (temp.getTemp() < 0 && temp.getTemp() > -0.5) {
+            temp.setTemp(Float.valueOf(0));
+        }
 
-        holder.tvtemp.setText(String.format(Locale.getDefault(), "%.0f°",temp.getTemp())+"C");
-       // holder.tvtemp.setText(String.format(Locale.getDefault(), "\u2103",temp.getTemp()));
+        holder.tvtemp.setText(String.format(Locale.getDefault(), "%.0f°", temp.getTemp()) + "C");
+        // holder.tvtemp.setText(String.format(Locale.getDefault(), "\u2103",temp.getTemp()));
         //holder.tvtemp.setText((Integer)temp.getTemp());
         Log.d("Adapter", String.valueOf(temp));
 
 
         //Icon
-        WeatherHourly weatherHourly=IdList.get(position);
-        Aputill.setWeatherIcon(context, (AppCompatImageView) holder.mImageview,weatherHourly.getId());
+        WeatherHourly weatherHourly = IdList.get(position);
+        Aputill.setWeatherIcon(context, (AppCompatImageView) holder.mImageview, weatherHourly.getId());
 
 
     }
@@ -73,15 +76,16 @@ public class HourlyAdapter extends RecyclerView.Adapter<HourlyAdapter.ThreeHour>
         return hourlyTempList.size();
     }
 
-    public class ThreeHour extends RecyclerView.ViewHolder{
+    public class ThreeHour extends RecyclerView.ViewHolder {
 
-        private TextView tvtemp,tvtime;
+        private TextView tvtemp, tvtime;
         private ImageView mImageview;
+
         public ThreeHour(@NonNull View itemView) {
             super(itemView);
-            tvtime=itemView.findViewById(R.id.time_text);
-            tvtemp=itemView.findViewById(R.id.temperature_text);
-            mImageview=itemView.findViewById(R.id.weather_image_view);
+            tvtime = itemView.findViewById(R.id.time_text);
+            tvtemp = itemView.findViewById(R.id.temperature_text);
+            mImageview = itemView.findViewById(R.id.weather_image_view);
         }
     }
 }
