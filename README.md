@@ -12,7 +12,7 @@ Click the search icon and if  you provide a city as an input(Access current weat
 <br/>
 <br/>
 
-<p>
+<p align="centre">
  <img src="https://github.com/Amit-guha/Weather/blob/master/app/src/main/assets/shimereffect.jpg" width="220px" height="440px">
  <img src="https://github.com/Amit-guha/Weather/blob/master/app/src/main/assets/temperature.jpg" width="220px" height="440px">
   <img src="https://github.com/Amit-guha/Weather/blob/master/app/src/main/assets/sevendays.jpg" width="220px" height="440px">
