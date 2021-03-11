@@ -12,15 +12,22 @@ Click the search icon and if  you provide a city as an input(Access current weat
 <br/>
 <br/>
 
-<p>
+<p align="center">
  <img src="https://github.com/Amit-guha/Weather/blob/master/app/src/main/assets/shimereffect.jpg" width="220px" height="440px">
  <img src="https://github.com/Amit-guha/Weather/blob/master/app/src/main/assets/temperature.jpg" width="220px" height="440px">
-  <img src="https://github.com/Amit-guha/Weather/blob/master/app/src/main/assets/sevendays.jpg" width="220px" height="440px">
+ </p>
+ 
+ <br/>
+ 
+ <p align="center">
+ <img src="https://github.com/Amit-guha/Weather/blob/master/app/src/main/assets/sevendays.jpg" width="220px" height="440px">
  <img src="https://github.com/Amit-guha/Weather/blob/master/app/src/main/assets/sunrise.jpg" width="220px" height="440px">
  </p>
  
  <br/>
  <br/>
+ 
+ **[Demo video here](https://www.linkedin.com/posts/amit-guha_android-java-openweathermap-activity-6775798442687127554-PPkY)**
  
  # Dependencies
  * [Material design](https://material.io/develop/android)
@@ -29,3 +36,6 @@ Click the search icon and if  you provide a city as an input(Access current weat
  * [Shimmer effect for Android](https://facebook.github.io/shimmer-android/)
  * [Circular Imageview](https://github.com/hdodenhof/CircleImageView)
  * [Square Retrofit](https://square.github.io/retrofit/)
+
+**Credit :** <br/>
+  Thank you [OpenWeatherMap API](https://openweathermap.org/) for providing me the API KEY and also thank to other github resources where i get the idea about weather app.
